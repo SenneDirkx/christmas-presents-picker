@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState} from 'react';
+import Start from './components/Start';
+import InGame from './components/InGame';
+import Done from './components/Done';
+
 
 function App() {
+  const [state, setState] = useState(0);
+  const [total, setTotal] = useState(null);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {state === 0 && <Start setTotal={setTotal} setState={setState} />}
+      {state === 1 && <InGame total={total} setState={setState}/>}
+      {state === 2 && <Done/>}
     </div>
   );
 }
