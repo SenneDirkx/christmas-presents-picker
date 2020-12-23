@@ -17,13 +17,17 @@ export default function Start(props) {
         }
     }
 
+    const style = {
+        backgroundColor: "#91d8cb"
+    }
+
     return (
         <div>
             <h1>Kerstmis Cadeaus Nummerkes</h1>
             <h3>by Senne</h3>
-            <input type="text" value={number} onChange={handleChange}></input><br/>
-            {errorMsg}<br/>
-            <button onClick={handleSubmit}>Start</button>
+            <input type="text" value={number} onChange={handleChange} style={style}></input><br/>
+            <p>{errorMsg}</p><br/>
+            <button style={style} onClick={handleSubmit}>Start</button>
         </div>
     )
 }

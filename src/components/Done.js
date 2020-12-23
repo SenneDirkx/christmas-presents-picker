@@ -3,7 +3,8 @@ import React from 'react'
 export default function Done() {
     return (
         <div>
-            Thanks for playing sku!
+            <h1>Tot volgend jaar</h1>
+            <h3>Nog een gelukkig 2021 he!</h3>
         </div>
     )
 }
