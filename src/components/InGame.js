@@ -18,20 +18,21 @@ export default function InGame(props) {
     }, [props.total])
 
     var next = () => {
+        if (numbersToGo.length === 0) {
+            props.setState(2);
+            return;
+        }
         var index = Math.floor(Math.random()*numbersToGo.length);
         var nextElem = numbersToGo[index];
         var copy = numbersToGo;
         copy.splice(index,1);
-        if (copy.length === 0) props.setState(2);
-        else {
-            setNumbersToGo(copy);
-            setCurrent(nextElem);
-            let colorIndex = Math.floor(Math.random()*colors.length);
-            let newColor = colors[colorIndex];
-            let newButtonColor = buttonColors[colorIndex];
-            props.setColor(newColor);
-            setButtonColor(newButtonColor);
-        }
+        setNumbersToGo(copy);
+        setCurrent(nextElem);
+        let colorIndex = Math.floor(Math.random()*colors.length);
+        let newColor = colors[colorIndex];
+        let newButtonColor = buttonColors[colorIndex];
+        props.setColor(newColor);
+        setButtonColor(newButtonColor);
     }
 
     const style = {
