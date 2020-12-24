@@ -23,7 +23,7 @@ export default function Start(props) {
 
     return (
         <div>
-            <h1>Kerstmis Cadeaus Nummerkes</h1>
+            <h1 style={{textAlign: "center"}}><img src="https://www.flaticon.com/svg/static/icons/svg/744/744546.svg" alt="Kerstmis" width="80" height="80s" /> Cadeau Kiezer</h1>
             <h3>by Senne</h3>
             <input type="text" value={number} onChange={handleChange} style={style}></input><br/>
             <p>{errorMsg}</p><br/>
