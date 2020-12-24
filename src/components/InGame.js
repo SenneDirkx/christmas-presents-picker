@@ -7,7 +7,10 @@ export default function InGame(props) {
     
     const [numbersToGo, setNumbersToGo] = useState([]);
     const [current, setCurrent] = useState(null);
-    const [buttonColor, setButtonColor] = useState("#79B7AC")
+    const [buttonColor, setButtonColor] = useState("#79B7AC");
+
+    const animationSound = new Audio('./anim.mp3');
+    const endSound = new Audio('./end.mp3');
 
     useEffect(() => {
         var list = [];
@@ -15,7 +18,18 @@ export default function InGame(props) {
             list.push(i);
         }
         setNumbersToGo(list);
-    }, [props.total])
+    }, [props.total]);
+
+    var animationStep = (end, number) => {
+        if (end) {
+            endSound.currentTime = 0;
+            endSound.play();
+        } else {
+            animationSound.currentTime = 0;
+            animationSound.play();
+        }
+        setCurrent(number);
+    }
 
     var next = () => {
         if (numbersToGo.length === 0) {
@@ -24,15 +38,26 @@ export default function InGame(props) {
         }
         var index = Math.floor(Math.random()*numbersToGo.length);
         var nextElem = numbersToGo[index];
-        var copy = numbersToGo;
+        var copy = [...numbersToGo];
         copy.splice(index,1);
-        setNumbersToGo(copy);
-        setCurrent(nextElem);
-        let colorIndex = Math.floor(Math.random()*colors.length);
-        let newColor = colors[colorIndex];
-        let newButtonColor = buttonColors[colorIndex];
-        props.setColor(newColor);
-        setButtonColor(newButtonColor);
+
+        const delays = [50, 55, 60, 70, 80, 100, 120, 140, 170, 200, 250, 280, 330, 350, 410, 460, 500, 540, 600];
+        var sum = 0;
+        for (var i = 0; i < delays.length; i++) {
+            sum = sum + delays[i];
+            let animElem = copy[Math.floor(Math.random()*copy.length)]
+            setTimeout(() => animationStep(false, animElem), sum);
+        }
+
+        setTimeout(() => {
+            animationStep(true, nextElem);
+            setNumbersToGo(copy);
+            let colorIndex = Math.floor(Math.random()*colors.length);
+            let newColor = colors[colorIndex];
+            let newButtonColor = buttonColors[colorIndex];
+            props.setColor(newColor);
+            setButtonColor(newButtonColor);
+        }, sum+1200);
     }
 
     const style = {
