@@ -66,7 +66,7 @@ export default function InGame(props) {
 
     return (
         <div>
-            <h1>Nog {numbersToGo.length} <img src="https://www.flaticon.com/svg/static/icons/svg/1139/1139982.svg" alt="Cadeautjes" width="80" height="80"/> te gaan</h1><br/>
+            <h1>Nog {numbersToGo.length} 🎁 te gaan</h1><br/>
             <h2>{current}</h2><br/>
             <button id="nextButton" onClick={next} style={style}>Volgende</button>
         </div>

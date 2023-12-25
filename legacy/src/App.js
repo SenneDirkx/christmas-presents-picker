@@ -1,5 +1,5 @@
 import './App.css';
-import Particles from 'react-particles-js';
+import Particles from 'react-tsparticles';
 
 import {useState} from 'react';
 import Start from './components/Start';
