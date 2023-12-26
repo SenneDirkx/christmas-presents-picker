@@ -4,7 +4,7 @@
 </script>
 
 <div class="min-h-screen bg-base">
-    <div class="max-h-[80vh] h-[800px] flex justify-center items-center">
+    <div class="h-screen flex">
         <slot />
     </div>
     <Footer />

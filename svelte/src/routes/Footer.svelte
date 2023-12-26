@@ -1,7 +1,7 @@
 <script lang="ts">
     let year = new Date().getFullYear();
 </script>
-<footer class="sticky top-[100vh] footer items-center p-4 bg-neutral text-neutral-content">
+<footer class="sticky top-[100vh] footer items-center p-4 bg-cyan-700 text-gray-100">
     <aside class="items-center grid-flow-col">
         <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="40px" width="40px" version="1.1" id="_x32_" viewBox="0 0 512 512" xml:space="preserve">
             <g>

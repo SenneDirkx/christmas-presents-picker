@@ -1,4 +1,6 @@
 <script lang="ts">
+    import Logo from "$lib/Logo.svelte";
+
 
     let inputNumber = '';
     let errorMsg = '';
@@ -7,14 +9,6 @@
     export let animationsEnabled: boolean;
     export let soundEnabled: boolean;
     export let chosenSound: string;
-
-    let toggleAnim = () => {
-        animationsEnabled = !animationsEnabled;
-    }
-
-    let toggleSound = () => {
-        soundEnabled = !soundEnabled;
-    }
 
     let handleSubmit = () => {
         let number = parseInt(inputNumber);
@@ -33,9 +27,8 @@
     }
 </script>
 
-<h1 class="font-bold text-3xl text-base-content mt-10">
-🎁 Xmas Drop</h1>
-<div class="flex flex-col items-center">
+<Logo secondary="#d8b4fe" />
+<div class="mt-5 flex flex-col items-center">
     <p class="mb-2 text-md text-base-content">How many gifts are under the Christmas tree?</p>
     <input type="number" bind:value={inputNumber} class="input input-bordered input-accent w-full max-w-xs" placeholder="10"/>
 </div>
@@ -56,7 +49,7 @@
 </label>
 {#if soundEnabled}
 <div class="flex flex-col items-center w-full">
-    <p class="mb-2 text-md text-gray-500">Select your soundtrack.</p>
+    <p class="mb-2 text-md">Select your soundtrack.</p>
     <select bind:value={chosenSound} class="select select-secondary w-full max-w-xs text-lg">
         <option value="boom">
             Boom
@@ -67,4 +60,4 @@
 {#if errorMsg}
 <p class="text-error">{errorMsg}</p>
 {/if}
-<button class="btn btn-primary text-lg" on:click={handleSubmit}>Start</button>
+<button class="btn bg-purple-300 text-lg" on:click={handleSubmit}>Start</button>

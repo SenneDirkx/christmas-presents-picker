@@ -1,5 +1,6 @@
 <script lang="ts">
-    import { onMount } from "svelte";
+    import Logo from "$lib/Logo.svelte";
+import { onMount } from "svelte";
 
     export let animationsEnabled: boolean;
     export let soundEnabled: boolean;
@@ -78,8 +79,8 @@
 </script>
 
 {#if !loading}
-<h1 class="font-bold text-3xl text-base-content">Xmas Drop</h1>
-<div on:click={next} on:keydown={next} class="flex flex-col gap-5 items-center cursor-pointer select-none" tabindex="0" role="button">
+<Logo secondary="#bbf7d0" />
+<div on:click={next} on:keydown={next} class="mt-5 flex flex-col gap-5 items-center cursor-pointer select-none" tabindex="0" role="button">
     <h1 class="text-5xl font-bold">
     {#if toGo}
     {toGo} 🎁 to go
@@ -91,11 +92,11 @@
     {#if current && !animationOngoing}
     {current}
     {:else if current}
-    <span class="text-primary">{current}</span>
+    <span class="text-purple-300">{current}</span>
     {:else}
     <span class="invisible">-</span>
     {/if}
     </h2>
-    <button class="btn btn-accent text-lg" disabled={animationOngoing} >Next</button>
+    <button class="btn bg-green-300 text-lg" disabled={animationOngoing} >Next</button>
 </div>
 {/if}
